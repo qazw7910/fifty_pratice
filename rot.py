@@ -1,3 +1,5 @@
+import codecs
+print(codecs.encode('apple','rot13'))
 def rot13(word):
     output =[]
     for i in word.lower():
