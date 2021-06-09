@@ -1,5 +1,5 @@
 import operator
-
+#https://www.flag.com.tw/Redirect/F1750/26
 def prefix(to_solve):
 
     def isnumber(num):
