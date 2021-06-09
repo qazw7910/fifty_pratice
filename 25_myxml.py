@@ -1,3 +1,4 @@
+#https://www.flag.com.tw/Redirect/F1750/25
 def myxml(tag, content='', **kwargs):
     attrs_list = []
     for key, value in kwargs.items():
