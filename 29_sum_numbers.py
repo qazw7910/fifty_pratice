@@ -1,7 +1,14 @@
 def sum_number(data):
-    return sum([int(x)
+    '''return sum([int(x)
                 for x in data.split()
-                if x.isdigit()])
+                if x.isdigit()])'''
+    return sum(
+        list(
+            map(int,
+                filter(lambda d : d.isdigit(), data.split()))
+        )
+    )
+
 
 
 if __name__ == '__main__':
