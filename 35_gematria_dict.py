@@ -1,8 +1,8 @@
 import string
 
-'''print(string.ascii_lowercase)
+print(string.ascii_lowercase)
 print(list(enumerate(string.ascii_lowercase)))
-print(list(enumerate(string.ascii_lowercase, 1)))'''
+print(list(enumerate(string.ascii_lowercase, 1)))
 def gematria_dict():
     return {char: index
             for index, char
