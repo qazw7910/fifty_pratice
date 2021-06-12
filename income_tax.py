@@ -15,6 +15,9 @@ def find_tax_rage(amount):
     return result
 
 def calculate_tax(amount):
-    return amount *find_tax_rage(amount)
+    if not (isinstance(amount, int) or isinstance(amount, float)):
+        raise ValueError('Parameter "amount" has to be a number')
+    return amount * find_tax_rage(amount)
+
 
 
