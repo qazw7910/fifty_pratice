@@ -1,3 +1,4 @@
+import operator
 def menu(**options):
     def menu_selecter():
         option_string = '/'.join(options)
