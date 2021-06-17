@@ -22,3 +22,12 @@ for index , letter in myenu:
 
 for index, letter in enumerate('abcde'):
     print(f'{index}->{letter}')
+
+n = [1, 2, 3, 4, 5]
+print(type(iter(n)))
+
+d = {'a' : 1, 'b' : 2, 'c' : 3}
+print(type(iter(d.items())))
+
+s = 'test'
+print(type(iter(s)))
