@@ -11,4 +11,4 @@ class Solution:
 
 if __name__ == '__main__':
     so = Solution()
-    print(so.shiftGrid(grid = [[1,2,3],[4,5,6],[7,8,9]], k = 1))
+    print(so.shift_grid(grid = [[1,2,3],[4,5,6],[7,8,9]], k = 1))
