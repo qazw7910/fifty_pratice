@@ -1,4 +1,3 @@
-
 class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode):
         # 首先對兩個鏈表進行遍歷，然后將數字轉化為字串加起來
@@ -45,6 +44,7 @@ class Solution:
 
         return pointer.next
 
+
 if __name__ == '__main__':
     so = Solution()
-    print(so.addTwoNumbers(l1 = [2,4,3], l2 = [5,6,4]))
+    print(so.addTwoNumbers(l1=[2, 4, 3], l2=[5, 6, 4]))
