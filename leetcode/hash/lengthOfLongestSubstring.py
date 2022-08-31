@@ -1,19 +1,29 @@
 def main():
     so = Solution()
     print(so.lengthOfLongestSubstring("abcabcbb"))
+
+
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        start = maxLength = 0
-        usedChar = {}
+        if len(s) <= 0:
+            return len(s)
 
-        for i in range(len(s)):
-            if s[i] in usedChar and start <= usedChar[s[i]]:
-                start = usedChar[s[i]] + 1
-            else:
-                maxLength = max(maxLength, i - start + 1)
+        fast = 0
+        slow = 0
+        max_length = 0
+        unique_hashset = set()
 
-            usedChar[s[i]] = i
+        while fast <len(s):
+            while fast < len(s) and s[fast] not in unique_hashset:
+                unique_hashset.add(s[fast])
+                fast +=1
 
-        return maxLength
+            max_length = max(max_length, len(unique_hashset))
+
+            unique_hashset.remove(s[slow])
+            slow +=1
+
+        return max_length
+
 if __name__ == '__main__':
     main()
