@@ -2,7 +2,7 @@ def main():
     so = Solution()
     print(so.findDuplicates([4, 5, 2, 7, 8, 2, 3, 1]))
 
-
+#test
 class Solution(object):
     def findDuplicates(self, nums):
         res = []
