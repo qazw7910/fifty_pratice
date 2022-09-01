@@ -1,6 +1,6 @@
 def main():
     so = Solution()
-    print(so.sortColors([2,0,2,1,1,0]))
+    print(so.sortColors([2, 0, 2, 1, 1, 0]))
 
 
 class Solution:
