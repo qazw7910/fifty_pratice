@@ -1,6 +1,6 @@
 def main():
     so = Solution()
-    print(so.nextPermutation([1, 2, 3, 4, 6, 3, 1]))
+    print(so.nextPermutation([1, 5, 1]))
 
 class Solution:
     def nextPermutation(self, nums: list[int]) -> None:
@@ -12,7 +12,7 @@ class Solution:
             return nums
 
         k = i - 1
-        while nums[k] > nums[j]:
+        while nums[k] >= nums[j]:
             j -= 1
         nums[k], nums[j] = nums[j], nums[k]
 
