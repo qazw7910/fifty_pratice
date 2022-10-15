@@ -1,29 +1,22 @@
 def main():
     so = Solution()
-    print(so.compress(["a", "a", "b", "b", "c", "c", "c"]))
+    print(so.compress(chars=["a", "a", "b", "b", "c", "c", "c"]))
 
 
-class Solution:
-    def compress(self, chars: list[str]) -> int:
-        walker, runner = 0, 0
-        while runner < len(chars):
-
-            chars[walker] = chars[runner]
-            count = 1
-
-            while runner + 1 < len(chars) and chars[runner] == chars[runner + 1]:
-                runner += 1
-                count += 1
-
-            if count > 1:
-                for c in str(count):
-                    chars[walker + 1] = c
-                    walker += 1
-
-            runner += 1
-            walker += 1
-
-        return walker
+class Solution(object):
+    def compress(self, chars):
+        left = i = 0
+        while i < len(chars):
+            char, length = chars[i], 1
+            while (i + 1) < len(chars) and char == chars[i + 1]:
+                length, i = length + 1, i + 1
+            chars[left] = char
+            if length > 1:
+                len_str = str(length)
+                chars[left + 1:left + 1 + len(len_str)] = len_str
+                left += len(len_str)
+            left, i = left + 1, i + 1
+        return chars
 
 
 if __name__ == '__main__':
