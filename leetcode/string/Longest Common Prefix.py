@@ -11,6 +11,7 @@ class Solution:
             if len(set(t)) == 1:
                 pre += t[0]
             else:
+
                 break
         return pre
 
