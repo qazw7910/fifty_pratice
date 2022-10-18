@@ -8,6 +8,7 @@ class Solution(object):
         if nums is not None and k > 0:
             k = k % len(nums)
             nums[:] = nums[-k:] + nums[:-k]
+
             return nums
 
 if __name__ == '__main__':
