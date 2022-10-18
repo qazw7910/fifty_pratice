@@ -6,9 +6,9 @@ def main():
 class Solution:
     def shiftingLetters(self, s: str, shifts: list[int]) -> str:
         sumi = sum(shifts)
-        L = list(map(ord, list(s)))
+        L = list(map(ord, s))
         for i in range(len(L)):
-            L[i] = (L[i] - ord('a') + sumi) % 26 + ord('a')
+            L[i] = (L[i] - ord('a') + sumi) % 26 +ord('a')
             sumi -= shifts[i]
         return ''.join(map(chr, L))
 
