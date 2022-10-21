@@ -1,6 +1,6 @@
 def main():
     so = Solution()
-    print(so.shiftGrid(grid=[[1, 2, 3], [4, 5, 6], [7, 8, 9]], k=1))
+    print(so.shiftGrid(grid=[[1,1],[2,3],[3,5],[4,3],[7,2],[6,1],[5,1]], k=23))
 
 
 class Solution:
@@ -8,26 +8,24 @@ class Solution:
         row = len(grid)
         col = len(grid[0])
 
-        def separate(grid):
+        def separateGrid(grid):
             space = []
             for i in grid:
                 for j in i:
                     space.append(j)
             return space
 
-        def combine(grid, row, col):
-            space = [[0 for i in range(col)]for j in range(row)]
+        def combineGrid(grid, row, col):
+            space = [[0 for i in range(col)] for j in range(row)]
             for i in range(row):
                 for j in range(col):
                     space[i][j] = grid[i * col + j]
             return space
 
-        grid = separate(grid)
-        k = k % (col * row)
+        grid = separateGrid(grid)
+        k = k % len(grid)
         grid[:] = grid[-k:] + grid[:-k]
-        grid = combine(grid, row, col)
+        grid = combineGrid(grid, row, col)
         return grid
-
-
 if __name__ == '__main__':
     main()
