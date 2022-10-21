@@ -23,7 +23,7 @@ class Solution:
             return space
 
         grid = separateGrid(grid)
-        k = k % len(grid)
+        k = k % (row * col)
         grid[:] = grid[-k:] + grid[:-k]
         grid = combineGrid(grid, row, col)
         return grid
