@@ -5,8 +5,8 @@ def main():
 
 class Solution:
     def shiftGrid(self, grid: list[list[int]], k: int) -> list[list[int]]:
-        row = len(grid)
         col = len(grid[0])
+        row = len(grid)
 
         def separateGrid(grid):
             space = []
