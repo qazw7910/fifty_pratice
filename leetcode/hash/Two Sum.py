@@ -12,5 +12,6 @@ class Solution:
                 return [seen[a], key]
 
             seen[value] = key
+
 if __name__ == '__main__':
     main()
