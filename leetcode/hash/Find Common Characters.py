@@ -10,8 +10,8 @@ class Solution:
             newCheck = []
             for ch in word:
                 if ch in check:
-                    newCheck.append(c)
-                    check.remove(c)
+                    newCheck.append(ch)
+                    check.remove(ch)
             check = sorted(newCheck)
         return check
 if __name__ == '__main__':
