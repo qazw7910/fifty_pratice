@@ -1,6 +1,9 @@
+import collections
+
+
 def main():
     so = Solution()
-    print(so.subdomainVisits(cpdomains=["900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org"]))
+    print(so.subdomainVisits1(cpdomains=["900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org"]))
 
 
 class Solution:
@@ -25,6 +28,14 @@ class Solution:
         for key, value in visit.items():
             pairs.append(str(value)+ " " + key)
         return pairs
+
+    def subdomainVisits1(self, cpdomains):
+        counter = collections.Counter()
+        for cpdomain in cpdomains:
+            count, *domains = cpdomain.replace(" ",".").split(".")
+            for i in range(len(domains)):
+                counter[".".join(domains[i:])] += int(count)
+        return [" ".join((str(v), k)) for k, v in counter.items()]
 
 
 if __name__ == '__main__':
