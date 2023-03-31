@@ -6,12 +6,13 @@ def main():
 class Solution:
     def twoSum(self, nums: list[int], target: int) -> list[int]:
         seen = {}
-        for key, value in enumerate(nums):
-            a = target - value
+        for i in range(len(nums)):
+            a = target - nums[i]
             if a in seen:
-                return [seen[a], key]
+                return [seen[a], i]
+            else:
+                seen[nums[i]] = i
 
-            seen[value] = key
 
 if __name__ == '__main__':
     main()
