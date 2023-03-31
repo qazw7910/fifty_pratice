@@ -1,3 +1,8 @@
+def main():
+    so = Solution()
+    print(so.strStr("hello", "ll"))
+
+
 class Solution:
     def strStr(self, haystack: str, needle: str) -> int:
         for i in range(len(haystack) - len(needle) + 1):
@@ -7,5 +12,4 @@ class Solution:
 
 
 if __name__ == '__main__':
-    soution = Solution()
-    print(soution.strStr("hello", "ll"))
+    main()
