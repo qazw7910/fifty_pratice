@@ -12,7 +12,7 @@ class TreeNode:
 
 
 def createBinaryTree(nums):
-    if not nums:
+    if nums is None:
         return None
 
     # create the root node
