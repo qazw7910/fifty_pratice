@@ -33,8 +33,15 @@ class Solution:
             return list2
 
 
+def get_node_value(node):
+
+    if node is None:
+        return []
+    else:
+        return [node.val] + get_node_value(node.next)
+
+
 if __name__ == '__main__':
     so = Solution()
     result = so.mergeTwoLists(list1, list2)
-    print([node.val for node in result])
-    # print(result.val)
+    print(get_node_value(result))
