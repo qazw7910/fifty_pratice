@@ -34,7 +34,6 @@ class Solution:
 
 
 def get_node_value(node):
-
     if node is None:
         return []
     else:
