@@ -5,14 +5,17 @@ def main():
 
 class Solution(object):
     def findDuplicates(self, nums):
-        res = []
-        for i in range(len(nums)):
-            ind = abs(nums[i]) - 1
-            if nums[ind] < 0:
-                res.append(ind + 1)
-            else:
-                nums[ind] *= -1
-        return res
+        freq_dict = {}
+
+        for num in nums:
+            freq_dict[num] = freq_dict.get(num, 0) + 1
+
+        result = []
+        for key, value in freq_dict.items():
+            if value >= 2:
+                result.append(key)
+
+        return result
 
 
 if __name__ == '__main__':
