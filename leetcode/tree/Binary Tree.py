@@ -32,7 +32,17 @@ def create_binary_tree(nums):
     return root
 
 
+def get_tree_node_value(node):
+    if node is None:
+        return [None]
+
+    else:
+        left_value = get_tree_node_value(node.left)
+        right_value = get_tree_node_value(node.right)
+        return [node.val] + left_value + right_value
+
+
 if __name__ == '__main__':
     nums = [1, 2, 3, 4, None, 5, 6, None, None, 7, None]
     root = create_binary_tree(nums)
-    print(root.left.val)
+    print(get_tree_node_value(root))
