@@ -14,7 +14,6 @@ class Solution(object):
         for key, value in freq_dict.items():
             if value >= 2:
                 result.append(key)
-
         return result
 
 
