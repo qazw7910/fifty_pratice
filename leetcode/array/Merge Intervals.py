@@ -5,19 +5,16 @@ def main():
 
 class Solution:
     def merge(self, intervals: list[list[int]]) -> list[list[int]]:
-        intervals.sort(key=lambda x: x[0])
-        tmp = []
-        for x, y in intervals:
-            if not tmp:
-                tmp.append([x, y])
-                continue
-            pre_x, pre_y = tmp[-1]
-            if pre_y >= x:
-                tmp.pop()
-                tmp.append([pre_x, max(pre_y, y)])
+        intervals.sort(key=lambda interval: interval[0])
+        result = []
+        
+        for interval in intervals:
+            if not result or interval[0] > result[-1][1]:
+                result.append(interval)
             else:
-                tmp.append([x, y])
-        return tmp
+                result[-1][1] = max(interval[1], result[-1][1])
+
+        return result
 
 
 
