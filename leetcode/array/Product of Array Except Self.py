@@ -21,7 +21,7 @@ class Solution:
     #     return output
     # ----------------------------------------------------------------
     # solution2
-    def productExceptSelf(self, nums: List[int]) -> List[int]: # TC:O(n) SC:O(1)
+    def productExceptSelf(self, nums: List[int]) -> List[int]:  # TC:O(n) SC:O(1)
         output = [1] * len(nums)
         # [1, 1, 1, 1]
         for i in range(1, len(nums)):  # l->r   TC:O(n)
