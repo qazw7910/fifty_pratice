@@ -5,7 +5,8 @@ def main():
     so = Solution()
     print(so.search(nums=[4, 5, 6, 7, 0, 1, 2], target=0))
 
-
+# TC:O(log N) because time complexity of binary search is O(log N)
+# SC:O(1)
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
         low = 0
