@@ -20,7 +20,7 @@ for i in range(2, 6):
 
 
 def get_node_value(node):
-    if node is None:
+    if node is None: # equal to not node
         return []
     else:
         return [node.val] + get_node_value(node.next)
