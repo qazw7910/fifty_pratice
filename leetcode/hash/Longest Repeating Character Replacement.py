@@ -1,21 +1,25 @@
 def main():
     so = Solution()
-    print(so.characterReplacement(s="ABAB", k=2))
+    print(so.lengthOfLongestSubstring(s = "abcabcbb"))
 
 
 class Solution:
-    def characterReplacement(self, s: str, k: int) -> int:
-        lookup = {}
+    def lengthOfLongestSubstring(self, s: str) -> int:
         start = 0
-
+        longest_substring_size = 0
+        lookup = {}
         for end in range(len(s)):
-            lookup[s[end]] = lookup.get(s[end], 0) + 1
-            length = end - start + 1
+            if s[end] in lookup and lookup[s[end]] > start:
+                start = lookup[s[end]]
 
-            if length - max(lookup.values()) > k:
-                lookup[s[start]] -= 1
-                start += 1
-        return end - start + 1
+            lookup[s[end]] = end + 1
+
+            longest_substring_size = max(longest_substring_size, end - start + 1)
+
+        return longest_substring_size
+
+
+
 
 
 if __name__ == '__main__':
