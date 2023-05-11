@@ -1,6 +1,6 @@
 def main():
     so = Solution()
-    print(so.lengthOfLongestSubstring(s = "abcabcbb"))
+    print(so.lengthOfLongestSubstring(s = "dvdf"))
 
 
 class Solution:
