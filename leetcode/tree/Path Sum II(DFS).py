@@ -57,9 +57,8 @@ class Solution:
                 all_paths.append(list(cur_path))
 
             else:
-                target_sum -= cur_node.val
-                find_path(cur_node.left, target_sum, cur_path, all_paths)
-                find_path(cur_node.right, target_sum, cur_path, all_paths)
+                find_path(cur_node.left, target_sum - cur_node.val, cur_path, all_paths)
+                find_path(cur_node.right, target_sum - cur_node.val, cur_path, all_paths)
             cur_path.pop()
         all_paths = []
         find_path(root, targetSum, [], all_paths)
