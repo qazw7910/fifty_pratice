@@ -58,7 +58,7 @@ class Solution:
 
 
 if __name__ == '__main__':
-    nums = [6, 4, 8, 11, None, 13, 4, 7, 2, None, None, None, 1]
+    nums = [5, 4, 8, 11, None, 13, 4, 7, 2, None, None, None, 1]
     root = create_binary_tree(nums)
     so = Solution()
     # print(get_tree_node_value(root))
