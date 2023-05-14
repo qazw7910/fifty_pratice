@@ -21,13 +21,13 @@ def create_binary_tree(nums):
     while i < len(nums):
         node = queue.pop(0)
 
-        if nums[i] != None:
+        if nums[i]:
             node.left = TreeNode(nums[i])
             queue.append(node.left)
 
         i += 1
 
-        if nums[i] != None and i < len(nums):
+        if nums[i] and i < len(nums):
             node.right = TreeNode(nums[i])
             queue.append(node.right)
 
