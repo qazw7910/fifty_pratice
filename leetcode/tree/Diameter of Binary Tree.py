@@ -55,13 +55,12 @@ class Solution:
             left = find_diameter(node.left)
             right = find_diameter(node.right)
 
+            # (left_deep_length + right_deep_length) = diameter
             self.diameter = max(self.diameter, left + right)
 
+            # 1 + max(left, right), represents current node left and right which one
+            # have longer length
             return 1 + max(left, right)
-
-        find_diameter(root)
-
-        return self.diameter
 
 
 if __name__ == '__main__':
