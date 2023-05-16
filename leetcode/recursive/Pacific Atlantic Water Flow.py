@@ -9,6 +9,7 @@ class Solution:
         cols = len(heights[0])
 
         def dfs(r, c, visited, prev_heights):
+            # (r, c) in visited that means it already exists in pacific_visited or atlantic_visited
             if ((r, c) in visited or r < 0 or r == rows or c < 0 or c == cols or heights[r][c] < prev_heights):
                 return
 
