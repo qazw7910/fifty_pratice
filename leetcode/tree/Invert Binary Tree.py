@@ -34,10 +34,10 @@ def create_binary_tree(nums):
 def get_node_value_DFS(node):
     if not node:
         return []
-    else:
-        left = get_node_value_DFS(node.left)
-        right = get_node_value_DFS(node.right)
-        return [node.val] + left + right
+
+    left = get_node_value_DFS(node.left)
+    right = get_node_value_DFS(node.right)
+    return [node.val] + left + right
 
 def get_node_value_BFS(tree):
     if not tree:
