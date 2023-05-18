@@ -3,10 +3,11 @@ from typing import Optional
 
 
 class TreeNode:
-    def __init__(self,val=0, left=None, right=None):
+    def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
+
 
 def create_binary_tree(nums):
     root = TreeNode(nums[0])
@@ -21,15 +22,16 @@ def create_binary_tree(nums):
             node.left = TreeNode(nums[i])
             queue.append(node.left)
 
-        i+=1
+        i += 1
 
         if nums[i] and i < len(nums):
             node.right = TreeNode(nums[i])
             queue.append(node.right)
 
-        i+=1
+        i += 1
 
     return root
+
 
 def get_node_value_DFS(node):
     if not node:
@@ -38,6 +40,7 @@ def get_node_value_DFS(node):
     left = get_node_value_DFS(node.left)
     right = get_node_value_DFS(node.right)
     return [node.val] + left + right
+
 
 def get_node_value_BFS(tree):
     if not tree:
@@ -61,8 +64,8 @@ def get_node_value_BFS(tree):
 
 
 class Solution:
-    def invertTree(self, root:Optional[TreeNode]):
-        #BFS
+    def invertTree(self, root: Optional[TreeNode]):
+        # BFS
         # if not root:
         #     return
         #
@@ -79,7 +82,7 @@ class Solution:
         #         queue.append(node.right)
         #
         # return root
-        #----------------------------------------------------------------
+        # ----------------------------------------------------------------
         # DFS
         # preorder: node left right
         if not root:
@@ -89,8 +92,6 @@ class Solution:
         self.invertTree(root.left)
         self.invertTree(root.right)
         return root
-
-
 
 
 if __name__ == '__main__':
