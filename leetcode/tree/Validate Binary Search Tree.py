@@ -87,10 +87,10 @@ class Solution:
             if node.val <= smallest or node.val >= biggest:
                 return False
 
-            stack.append((node.left, smallest, root.val))
-            stack.append((node.right, root.val, biggest))
-        return True
+            stack.append((node.left, smallest, node.val))
+            stack.append((node.right, node.val, biggest))
 
+        return True
 
 
 if __name__ == '__main__':
