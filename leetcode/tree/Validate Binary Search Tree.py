@@ -26,7 +26,8 @@ def create_binary_tree(nums):
             queue.append(node.left)
 
         i += 1
-        if i >= len(nums)
+        if i >= len(nums):
+            break
 
         if nums[i] and i < len(nums):
             node.right = TreeNode(nums[i])
