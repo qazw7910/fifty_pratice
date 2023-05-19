@@ -26,6 +26,7 @@ def create_binary_tree(nums):
             queue.append(node.left)
 
         i += 1
+        if i >= len(nums)
 
         if nums[i] and i < len(nums):
             node.right = TreeNode(nums[i])
@@ -57,21 +58,25 @@ def get_node_value_BFS(tree):
     return result
 
 
-class Solution:
+class Solution1:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
         # DFS
-        # def is_valid(node, smallest, biggest):
-        #     # base case
-        #     if not node:
-        #         return True
-        #
-        #     if node.val <= smallest or node.val >= biggest:
-        #         return False
-        #
-        #     return is_valid(node.left, smallest, node.val) and is_valid(node.right, node.val, biggest)
-        #
-        # return is_valid(root, float("-inf"), float("inf"))
+        def is_valid(node, smallest, biggest):
+            if not node:
+                return True
+
+            if node.val <= smallest or node.val >= biggest:
+                return False
+
+            return is_valid(node.left, smallest, node.val) and is_valid(node.right, node.val, biggest)
+
+        return is_valid(root, float("-inf"), float("inf"))
+
         # ----------------------------------------------------------------
+
+
+class Solution2:
+    def isValidBST(self, root: Optional[TreeNode]) -> bool:
         # BFS
         if not root:
             return True
@@ -97,5 +102,5 @@ if __name__ == '__main__':
     nums = [2, 1, 3]
     root = create_binary_tree(nums)
     # print(get_node_value_BFS(root))
-    so = Solution()
+    so = Solution2()
     print(so.isValidBST(root))
