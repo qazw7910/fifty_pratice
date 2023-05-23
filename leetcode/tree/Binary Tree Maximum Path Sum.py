@@ -52,11 +52,11 @@ class Solution:
         def find_max_path_sum(node):
             if not node:
                 return 0
-
+            # Postorder: Left, Rright, Node
             left = max(find_max_path_sum(node.left), 0)
             right = max(find_max_path_sum(node.right), 0)
-
             cur_path_sum = node.val + left + right
+
             self.max_path_sum = max(self.max_path_sum, cur_path_sum)
 
             return node.val + max(left, right)
