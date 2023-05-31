@@ -22,7 +22,9 @@ class Solution:
             for pre in lookup[course]:
                 if not dfs(pre):
                     return False
+
             seen.remove(course)
+            lookup[course] = []
             return True
 
         for course in range(numCourses):
