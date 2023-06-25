@@ -30,7 +30,7 @@ class Solution:
         right_prod = nums[-1]
 
         for i in range(len(nums) - 2, -1, -1):  # r->l  TC:O(n)
-            output[i] = right_prod
+            output[i] *= right_prod
             right_prod *= nums[i]
         return output
 
