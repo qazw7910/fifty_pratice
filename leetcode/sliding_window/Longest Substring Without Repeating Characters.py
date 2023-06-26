@@ -1,6 +1,6 @@
 def main():
     so = Solution2()
-    print(so.lengthOfLongestSubstring(s="pwwkew"))
+    print(so.lengthOfLongestSubstring(s="ddvdf"))
 
 
 class Solution1:
@@ -22,20 +22,18 @@ class Solution1:
 
 class Solution2:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        l = 0
-        output = 0
-        seen = {}
-        for r in range(len(s)):
-            if s[r] not in seen:
-                output = max(output, r - l + 1)
-            else:
-                if seen[s[r]] < l:
-                    output = max(output, r - l + 1)
-                else:
-                    l = seen[s[r]]+ 1
-            seen[s[r]] = r
-        return output
+        start = 0
+        longest_substring_size = 0
+        lookup = {}
+        for end in range(len(s)):
+            if s[end] in lookup and lookup[s[end]] > start:
+                start = lookup[s[end]]
 
+            lookup[s[end]] = end + 1
+
+            longest_substring_size = max(longest_substring_size, end - start + 1)
+
+        return longest_substring_size
 
 
 if __name__ == '__main__':
