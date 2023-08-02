@@ -23,11 +23,11 @@ class Solution:
             while queue:
                 r, c = queue.popleft()
                 directions = [(r - 1, c), (r + 1, c), (r, c - 1), (r, c + 1)]
-                for x, y in directions:
-                    if not x < 0 and not x == len(grid) and not y < 0 and not y == len(grid[0]) and not grid[x][y] == "0":
+                for r, c in directions:
+                    if not r < 0 and not r == len(grid) and not c < 0 and not c == len(grid[0]) and grid[r][c] == "1":
                         # if 1 in four directions append (x, y) to queue to keep recursion
-                        queue.append((x, y))
-                        grid[x][y] = "0"
+                        queue.append((r, c))
+                        grid[r][c] = "0"
 
         if not grid:
             return 0
