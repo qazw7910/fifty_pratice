@@ -13,7 +13,7 @@ class Solution:
 
             directions = [(row - 1, col), (row + 1, col), (row, col - 1), (row, col + 1)]
             for r, c in directions:
-                find_islands(r, c, grid)
+                dfs(r, c, grid)
 
         # original grid[row][col] == "1" but near  grid[row][col]  == "0"
         def bfs(row, col, grid):
