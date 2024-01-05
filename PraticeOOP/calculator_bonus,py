@@ -67,19 +67,20 @@ def choose_your_currency():
             print(f"您輸入的代號不在選項內，請重新輸入")
         except ValueError:
             print(f"請重新輸入選項內 1.台幣 2.美元 3.日圓 的數字代號")
-        continue
 
 
 def input_num():
     while True:
         try:
             num = int(input("請輸入您的要兌換的基礎貨幣總額").replace(' ', ''))
-            return num
+            if num <= 0:
+                print(f'請輸入大於0的數字')
+            else:
+                return num
         except TypeError:
             print(f'請輸入數字')
         except ValueError:
             print(f"請輸入數字!!請重新輸入金額!!")
-        continue
 
 
 def choose_target_currency(oringinal_currency):
@@ -90,14 +91,13 @@ def choose_target_currency(oringinal_currency):
             choice = int(input("請輸入您要兌換的貨幣代號 1.台幣 2.美元 3.日圓").replace(' ', ''))
             if currency_represent[choice] == oringinal_currency:
                 print(f'你已經是{comfirm_currency[oringinal_currency]}了')
-                continue
+
             else:
                 return currency_represent[choice]
         except KeyError:
             print(f"您輸入的代號不在選項內")
         except ValueError:
             print(f"請輸入選項內 1.台幣 2.美元 3.日圓 的數字代號")
-        continue
 
 
 '''
@@ -120,18 +120,16 @@ def user_interface():
     comfirm_currency = {'TWD': '台幣', 'USD': '美元', 'JPY': '日圓'}
     total_type_money = create_money()
 
-    while True:
-        oringinal_currency = choose_your_currency()
-        num = input_num()
-        target_currency = choose_target_currency(oringinal_currency)
-        exchange_currency_origin = total_type_money[oringinal_currency]
-        exchange_currency_target = total_type_money[target_currency]
-        exchange_rate = exchange_currency_origin.get_exchange_rate(exchange_currency_target)
+    oringinal_currency = choose_your_currency()
+    num = input_num()
+    target_currency = choose_target_currency(oringinal_currency)
+    exchange_currency_origin = total_type_money[oringinal_currency]
+    exchange_currency_target = total_type_money[target_currency]
+    exchange_rate = exchange_currency_origin.get_exchange_rate(exchange_currency_target)
 
-        print(f'現在{comfirm_currency[oringinal_currency]}對{comfirm_currency[target_currency]}'
-              f'匯率為 {exchange_rate}，{num} {comfirm_currency[oringinal_currency]} '
-              f'總共可以換 {num * exchange_rate}{comfirm_currency[target_currency]}')
-        break
+    print(f'現在{comfirm_currency[oringinal_currency]}對{comfirm_currency[target_currency]}'
+          f'匯率為 {exchange_rate}，{num} {comfirm_currency[oringinal_currency]} '
+          f'總共可以換 {num * exchange_rate}{comfirm_currency[target_currency]}')
 
 
 if __name__ == '__main__':
