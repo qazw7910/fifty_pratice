@@ -1,0 +1,1 @@
+使用python幫我爬取https://rate.bot.com.tw/xrt?Lang=zh-TW，幣別:美金 (USD)、日圓 (JPY)現金匯率:本行買入:裡的匯率
