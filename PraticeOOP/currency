@@ -54,28 +54,30 @@ def choose_your_currency():
 
 
 def input_num():
-    try:
-        num = int(input("請輸入您的要兌換的基礎貨幣總額").replace(' ', ''))
-        return num
-    except TypeError:
-        print(f'請輸入數字')
-
+    while True:
+        try:
+            num = int(input("請輸入您的要兌換的基礎貨幣總額").replace(' ', ''))
+            return num
+        except TypeError:
+            print(f'請輸入數字')
+        continue
 
 def choose_target_currency(oringinal_currency):
     currency_represent = {1: 'TWD', 2: 'USD', 3: 'JPY'}
     comfirm_currency = {'TWD': '台幣', 'USD': '美元', 'JPY': '日圓'}
-
-    try:
-        choice = int(input("請輸入您的基礎貨幣代號 1.台幣 2.美元 3.日圓").replace(' ', ''))
-        if currency_represent[choice] == oringinal_currency:
-            print(f'你已經是{comfirm_currency[oringinal_currency]}了')
-        else:
-            return currency_represent[choice]
-    except KeyError:
-        print(f"您輸入的代號不在選項內")
-    except TypeError:
-        print(f"請輸入選項內 1.台幣 2.美元 3.日圓 的數字代號")
-
+    while True:
+        try:
+            choice = int(input("請輸入您的基礎貨幣代號 1.台幣 2.美元 3.日圓").replace(' ', ''))
+            if currency_represent[choice] == oringinal_currency:
+                print(f'你已經是{comfirm_currency[oringinal_currency]}了')
+                continue
+            else:
+                return currency_represent[choice]
+        except KeyError:
+            print(f"您輸入的代號不在選項內")
+        except TypeError:
+            print(f"請輸入選項內 1.台幣 2.美元 3.日圓 的數字代號")
+        continue
 
 '''
 2.輸出為 "現在x對y匯率為 1:30
@@ -95,16 +97,17 @@ def create_money():
 
 def user_interface():
     comfirm_currency = {'TWD': '台幣', 'USD': '美元', 'JPY': '日圓'}
+    total_type_money = create_money()
     while True:
         oringinal_currency = choose_your_currency()  # 'TWD'
         num = input_num()
         target_currency = choose_target_currency(oringinal_currency)  # 'USD'
-        total_type_money = create_money()
         exchange_rate = total_type_money[oringinal_currency](target_currency)
-        return (f'現在{comfirm_currency[oringinal_currency]}對{comfirm_currency[target_currency]}'
+        print (f'現在{comfirm_currency[oringinal_currency]}對{comfirm_currency[target_currency]}'
                 f'匯率為 {exchange_rate}，{num} {comfirm_currency[oringinal_currency]} '
                 f'總共可以換 {num * exchange_rate}{comfirm_currency[target_currency]}')
+        break
 
 
 if __name__ == '__main__':
-    print(user_interface())
+    user_interface()
