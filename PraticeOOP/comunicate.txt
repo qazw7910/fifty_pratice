@@ -1,1 +1,31 @@
 使用python幫我爬取https://rate.bot.com.tw/xrt?Lang=zh-TW，幣別:美金 (USD)、日圓 (JPY)現金匯率:本行買入:裡的匯率
+import requests
+from bs4 import BeautifulSoup
+
+def get_exchange_rate(currency_code):
+    # 台灣銀行外匯牌價網址
+    url = f'https://rate.bot.com.tw/xrt?Lang=zh-TW'
+    
+    # 發送請求並獲取網頁內容
+    response = requests.get(url)
+    response.raise_for_status()  # 如果請求失敗，將拋出 HTTPError 異常
+
+    # 解析 HTML 內容
+    soup = BeautifulSoup(response.text, 'html.parser')
+
+    # 尋找表格並獲取匯率
+    table = soup.find('table', attrs={'title': '牌告匯率'})
+    rows = table.find_all('tr')
+    for row in rows:
+        cells = row.find_all('td')
+        if cells and cells[0].text.strip() == currency_code:
+            cash_buy = cells[1].text
+            return cash_buy
+    return None
+
+# 獲取 USD 和 JPY 的現金買入匯率
+usd_rate = get_exchange_rate('USD')
+jpy_rate = get_exchange_rate('JPY')
+
+print(f'美金 (USD) 現金買入匯率: {usd_rate}')
+print(f'日圓 (JPY) 現金買入匯率: {jpy_rate}')
