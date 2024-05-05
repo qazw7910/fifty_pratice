@@ -13,15 +13,12 @@ class Solution:
 
             if start < pre_end:
                 remove += 1
-
             else:
                 pre_end = interval[1]
 
         return remove
 
 
-
 if __name__ == '__main__':
-    intervals = [[1, 2], [2, 3], [3, 4], [1, 3]]
     so = Solution()
-    print(so.eraseOverlapIntervals(intervals))
+    print(so.eraseOverlapIntervals(intervals=[[1, 2], [2, 3], [3, 4], [1, 3]]))
